@@ -1,0 +1,169 @@
+$royalBlue: #111a41;
+$carnation: #fb6164;
+$shamRock: hsl(143, 62%, 47%);
+$bunting: #111a41;
+$stormGray: #6c6e84;
+$lightGray: #eee;
+$portage: #8491e6;
+$blueGroto: #0476D0;
+
+@import '~material-icons/iconfont/material-icons.css';
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+@mixin useFlex($direction, $justify, $align) {
+	display:flex;
+	flex-direction: $direction;
+	align-items: $align;
+}
+
+@mixin grayBorder(){
+	border: 1px solid $lightGray;
+	border-radius: 3px;
+}
+
+
+:root {
+	font-size: 62.5%;
+}
+
+body {
+	// font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: 'Lato', sans-serif;
+}
+
+main {
+	@include useFlex(column, none, center);
+
+	padding: 5px 10px;
+}
+
+.cv-form {
+	@include useFlex(column, none , none);
+	max-width: 600px;
+	min-height: 90vh;
+	border-radius: 10px;
+	padding: 16px 20px;
+	box-shadow: 4px 4px 24px rgba(139, 140, 165, 0.5);
+	.form-section {
+		position: relative;
+
+		// .form-section-modal {
+		// 	width: 100%;
+		// 	height: 100%;
+		// 	background-color: hsla(0, 0, 0, 0.3);
+		// 	border: 5px;
+		// 	position: absolute;
+		// 	// display:
+
+		// }
+
+		label {
+			min-width: 250px;
+			font-size: 2.1rem;
+			margin-top: 15px;
+			margin-bottom: 3px;
+			margin-right: 8px;
+			font-weight: 500;
+		}
+
+		.form-item {
+			@include useFlex(column, unset , unset);
+			@include grayBorder();		
+			flex-wrap: wrap;
+			flex-direction: row;
+			justify-content: space-between;
+			margin-bottom: 7px;
+			padding: 5px 20px 5px;
+			position: relative;
+		}
+		input, textarea{
+			outline: none;
+			border: none;
+			margin-bottom: 2px;
+			background-color: $lightGray;
+			padding: 8px;
+			border-radius: 3px;
+
+			&:valid {
+				border: 1px solid $shamRock;
+			}
+		}
+	}
+}
+
+button {
+	width: 140px;
+	display: block;
+	text-align: center;
+	margin: 10px auto ;
+	font-size: 17px;
+	outline: none;
+	border: none;
+	border-radius: 3px ;
+	padding: 4px 3px;
+	font-weight: 600;
+	cursor: pointer;
+	background-color: white;
+	border: 1px solid $blueGroto;
+	color: $blueGroto;
+	transition: all 0.2s ease-in 0s;
+	&:hover {
+		background-color: $blueGroto;
+		color: white;
+	}
+}
+
+.submit-form {
+		color: $shamRock;
+		background-color: white;
+		border: 2px solid $shamRock;
+		&:hover {
+			color: white;
+			
+			background-color: $shamRock;
+		}
+}
+
+.trash-can {
+	position: absolute;
+	right: 10px;
+	cursor: pointer;
+	transition: all 0.1s ease-in 0s;
+	&:hover {
+		color: #F83839;
+	}
+}
+
+.buttons-div {
+	display: flex;
+    justify-content: space-evenly;
+    margin: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.textarea-div {
+	width: 100%;
+}
+.text-area {
+	min-height: 70px;
+}
+
+.worked-days {
+	width: 100% ;
+	display:flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.internal-form-section {
+	@include useFlex(column, none, none);
+}
+
+
+.section-div-inline {
+	display: flex;
+	flex-direction: column;
+	min-width: 230px;
+	transition: all 0.2s ease-in 0s;
+}

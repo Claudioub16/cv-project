@@ -1,0 +1,172 @@
+@import url(~material-icons/iconfont/material-icons.css);
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
+/* line 25, ../../../test/react/cv-project/src/scss/style.scss */
+:root {
+  font-size: 62.5%;
+}
+
+/* line 29, ../../../test/react/cv-project/src/scss/style.scss */
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+/* line 34, ../../../test/react/cv-project/src/scss/style.scss */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px 10px;
+}
+
+/* line 40, ../../../test/react/cv-project/src/scss/style.scss */
+.cv-form {
+  display: flex;
+  flex-direction: column;
+  align-items: none;
+  max-width: 600px;
+  min-height: 90vh;
+  border-radius: 10px;
+  padding: 16px 20px;
+  box-shadow: 4px 4px 24px rgba(139, 140, 165, 0.5);
+}
+
+/* line 47, ../../../test/react/cv-project/src/scss/style.scss */
+.cv-form .form-section {
+  position: relative;
+}
+
+/* line 60, ../../../test/react/cv-project/src/scss/style.scss */
+.cv-form .form-section label {
+  min-width: 250px;
+  font-size: 2.1rem;
+  margin-top: 15px;
+  margin-bottom: 3px;
+  margin-right: 8px;
+  font-weight: 500;
+}
+
+/* line 69, ../../../test/react/cv-project/src/scss/style.scss */
+.cv-form .form-section .form-item {
+  display: flex;
+  flex-direction: column;
+  align-items: unset;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 7px;
+  padding: 5px 20px 5px;
+  position: relative;
+}
+
+/* line 79, ../../../test/react/cv-project/src/scss/style.scss */
+.cv-form .form-section input, .cv-form .form-section textarea {
+  outline: none;
+  border: none;
+  margin-bottom: 2px;
+  background-color: #eee;
+  padding: 8px;
+  border-radius: 3px;
+}
+
+/* line 87, ../../../test/react/cv-project/src/scss/style.scss */
+.cv-form .form-section input:valid, .cv-form .form-section textarea:valid {
+  border: 1px solid #2ec267;
+}
+
+/* line 94, ../../../test/react/cv-project/src/scss/style.scss */
+button {
+  width: 140px;
+  display: block;
+  text-align: center;
+  margin: 10px auto;
+  font-size: 17px;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  padding: 4px 3px;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid #0476D0;
+  color: #0476D0;
+  transition: all 0.2s ease-in 0s;
+}
+
+/* line 110, ../../../test/react/cv-project/src/scss/style.scss */
+button:hover {
+  background-color: #0476D0;
+  color: white;
+}
+
+/* line 116, ../../../test/react/cv-project/src/scss/style.scss */
+.submit-form {
+  color: #2ec267;
+  background-color: white;
+  border: 2px solid #2ec267;
+}
+
+/* line 120, ../../../test/react/cv-project/src/scss/style.scss */
+.submit-form:hover {
+  color: white;
+  background-color: #2ec267;
+}
+
+/* line 127, ../../../test/react/cv-project/src/scss/style.scss */
+.trash-can {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  transition: all 0.1s ease-in 0s;
+}
+
+/* line 132, ../../../test/react/cv-project/src/scss/style.scss */
+.trash-can:hover {
+  color: #F83839;
+}
+
+/* line 137, ../../../test/react/cv-project/src/scss/style.scss */
+.buttons-div {
+  display: flex;
+  justify-content: space-evenly;
+  margin: auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+/* line 146, ../../../test/react/cv-project/src/scss/style.scss */
+.textarea-div {
+  width: 100%;
+}
+
+/* line 149, ../../../test/react/cv-project/src/scss/style.scss */
+.text-area {
+  min-height: 70px;
+}
+
+/* line 153, ../../../test/react/cv-project/src/scss/style.scss */
+.worked-days {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* line 159, ../../../test/react/cv-project/src/scss/style.scss */
+.internal-form-section {
+  display: flex;
+  flex-direction: column;
+  align-items: none;
+}
+
+/* line 164, ../../../test/react/cv-project/src/scss/style.scss */
+.section-div-inline {
+  display: flex;
+  flex-direction: column;
+  min-width: 230px;
+  transition: all 0.2s ease-in 0s;
+}
+
+/*# sourceMappingURL=style.css.map */
