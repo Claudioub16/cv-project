@@ -4,7 +4,8 @@ function Basics(props) {
 	return (
 		<div>
 			<h2>{name}</h2>
-        	<p>{phone}</p><p>{email}</p>
+      <p className="number">{phone}</p>
+			<p className="email">{email}</p>
 		</div>
 		)
 }
