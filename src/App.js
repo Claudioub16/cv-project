@@ -9,24 +9,16 @@ import './styles/style.css'
 import uniqid from 'uniqid'
 
 function App() {
-
-  //input area
-  const defaultInputs = {
-    name: '',
-    email: '',
-    phone: ''
-  };
-
   const [inputs, setInputs] = useState(() => {
     const saved = localStorage.getItem("inputs");
     const initialValue = JSON.parse(saved);
-    return initialValue || defaultInputs;
+    return initialValue || {
+                                name: '',
+                                email: '',
+                                phone: ''
+                              };
   })
   
-  useEffect(() => {
-      localStorage.setItem('inputs', JSON.stringify(inputs));
-  },[inputs])
-
   //institutions area
   const defaultInstitutions = [{
     name: '',
@@ -41,10 +33,7 @@ function App() {
     return initialValue || defaultInstitutions;
   })
 
-  useEffect(() => {
-      localStorage.setItem('institutions', JSON.stringify(institutions));
-  },[institutions])
-
+  //experiences
   const defaultExperiences = [{
     company: '',
     position: '',
@@ -60,10 +49,6 @@ function App() {
     return initialValue || defaultExperiences;
   })
 
-  useEffect(() => {
-      localStorage.setItem('experiences', JSON.stringify(experiences));
-  },[experiences])
-
   const defaultEditingStatus = {
     basicsDisabled: false,
     institutionsDisabled: false,
@@ -76,7 +61,7 @@ function App() {
     return initialValue || defaultEditingStatus;
   })
 
-    useEffect(() => {
+  useEffect(() => {
       localStorage.setItem('defaultEditingStatus', JSON.stringify(disabled));
   },[disabled])
 
@@ -123,7 +108,10 @@ function App() {
         ...prevState,
         [name]: newBool
       }
-    })
+    });
+    localStorage.setItem('experiences', JSON.stringify(experiences));
+    localStorage.setItem('institutions', JSON.stringify(institutions));
+    localStorage.setItem('inputs', JSON.stringify(inputs));
   }
 
   return (
