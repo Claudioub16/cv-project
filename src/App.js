@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Institutions from './components/Institutions.js'
 import Experiences from './components/Experiences.js'
 import Basics from './components/Basics.js'
@@ -9,36 +9,77 @@ import './styles/style.css'
 import uniqid from 'uniqid'
 
 function App() {
-  const [inputs, setInputs] = useState({
+
+  //input area
+  const defaultInputs = {
     name: '',
     email: '',
     phone: ''
+  };
+
+  const [inputs, setInputs] = useState(() => {
+    const saved = localStorage.getItem("inputs");
+    const initialValue = JSON.parse(saved);
+    return initialValue || defaultInputs;
   })
   
-  const [institutions, setInstitutions] = useState([{
+  useEffect(() => {
+      localStorage.setItem('inputs', JSON.stringify(inputs));
+  },[inputs])
+
+  //institutions area
+  const defaultInstitutions = [{
     name: '',
     course: '',
     date: '',
     id: uniqid()
-  }
-  ])
+  }]
 
-  const [experiences, setExperiences] = useState([{
+  const [institutions, setInstitutions] = useState(()=> {
+    const saved = localStorage.getItem("institutions");
+    const initialValue = JSON.parse(saved);
+    return initialValue || defaultInstitutions;
+  })
+
+  useEffect(() => {
+      localStorage.setItem('institutions', JSON.stringify(institutions));
+  },[institutions])
+
+  const defaultExperiences = [{
     company: '',
     position: '',
     mainTasks: ' ',
     initialDate: '2018-05',
     finalDate: '2020-05',
     id: uniqid()
+  }]
 
+  const [experiences, setExperiences] = useState(()=> {
+    const saved = localStorage.getItem("experiences");
+    const initialValue = JSON.parse(saved);
+    return initialValue || defaultExperiences;
+  })
 
-  }])
+  useEffect(() => {
+      localStorage.setItem('experiences', JSON.stringify(experiences));
+  },[experiences])
 
-  const [disabled, setDisabled] = useState({
+  const defaultEditingStatus = {
     basicsDisabled: false,
     institutionsDisabled: false,
     experincesDisabled: false
+  }
+
+  const [disabled, setDisabled] = useState(() => {
+    const saved = localStorage.getItem("defaultEditingStatus");
+    const initialValue = JSON.parse(saved);
+    return initialValue || defaultEditingStatus;
   })
+
+    useEffect(() => {
+      localStorage.setItem('defaultEditingStatus', JSON.stringify(disabled));
+  },[disabled])
+
 
   const handleChange = (event, id) => {
     const {name, value} = event.target;
@@ -67,23 +108,11 @@ function App() {
   }
 
   const addNewInst = () => {
-    setInstitutions([...institutions, {
-      name: '',
-      course: '',
-      date: '',
-      id: uniqid()
-    }])
+    setInstitutions([...institutions, defaultInstitutions])
   }
 
   const addNewExperience = () => {
-    setExperiences([...experiences, {
-      company: '',
-      position: '',
-      mainTasks: ' ',
-      initialDate: '',
-      finalDate: '',
-      id: uniqid()
-    }])
+    setExperiences([...experiences, defaultExperiences])
   }
 
   const saveArea = (event) => {
@@ -98,7 +127,6 @@ function App() {
   }
 
   return (
-
     <main>
       <form className="cv-form" onSubmit={formSubmit}>
         <section className="form-section basics-form">
