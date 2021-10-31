@@ -36,6 +36,10 @@ main {
 	padding: 5px 10px;
 }
 
+.root {
+  @include useFlex("row", "center", "center")
+}
+
 .cv-form {
 	@include useFlex(column, none , none);
 	max-width: 600px;
