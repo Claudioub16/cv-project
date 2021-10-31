@@ -7,8 +7,8 @@ function App() {
   return (
     <Router>
       <DataProvider>
-        <Route path="/" exact component={CVForm} />
-        <Route path="/cv" exact component={CV} />
+        <Route path="/cv-project" exact component={CVForm} />
+        <Route path="/cv-project/cv" exact component={CV} />
       </DataProvider>
     </Router>
   );
