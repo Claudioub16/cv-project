@@ -10,7 +10,7 @@ function CV() {
 
   return (
     <div>
-      <Link to="/" style={{ textDecoration: "none" }}>
+      <Link to="/cv-project" style={{ textDecoration: "none" }}>
         <button className="submit-form">Go back</button>
       </Link>
 

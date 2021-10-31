@@ -36,8 +36,9 @@ main {
 	padding: 5px 10px;
 }
 
-.root {
-  @include useFlex("row", "center", "center")
+#root {
+  @include useFlex(row, center, center);
+  justify-content: center;
 }
 
 .cv-form {
@@ -163,6 +164,7 @@ button {
 .CV {
 	  min-width: 600px;
 		min-height: 850px;
+    max-width: 900px;
     padding: 20px;
     box-shadow: 1px 1px 8px rgba(139, 140, 165, 0.5);
     margin-top: 90px;
