@@ -1,11 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Basics from "./Basics.js";
 import Institutions from "./Institutions.js";
 import Experiences from "./Experiences.js";
 import { DataContext } from "../DataContext.js";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
-function CVForm(props) {
+function useTitle(title, ...deps) {
+  useEffect(() => {
+    document.title = title;
+  }, [...deps]);
+}
+
+const CVForm = (props) => {
   const {
     formSubmit,
     inputs,
@@ -18,8 +24,22 @@ function CVForm(props) {
     addNewInst,
     addNewExperience,
   } = useContext(DataContext);
+  const history = useHistory();
+
+  useTitle("Editor");
+
+  const goToCV = () => {
+    history.push("/cv-project/cv");
+  };
+
   return (
-    <form className="cv-form" onSubmit={formSubmit}>
+    <form
+      className="cv-form"
+      onSubmit={(e) => {
+        goToCV();
+        formSubmit(e);
+      }}
+    >
       <section className="form-section basics-form">
         <Basics
           data={inputs}
@@ -69,11 +89,9 @@ function CVForm(props) {
           </button>
         </div>
       </section>
-      <Link to="/cv" style={{ textDecoration: "none" }}>
-        <button className="submit-form">Submit</button>
-      </Link>
+      <button className="submit-form">Submit</button>
     </form>
   );
-}
+};
 
 export default CVForm;

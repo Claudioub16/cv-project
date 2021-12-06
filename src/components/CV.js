@@ -1,17 +1,30 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import BasicsUI from "./BasicsUI.js";
 import InstitutionsUI from "./InstitutionsUI.js";
 import ExperiencesUI from "./ExperiencesUI.js";
 import { DataContext } from "../DataContext.js";
-import { Link } from "react-router-dom";
+import {
+  Link,
+  useHistory,
+} from "react-router-dom";
+
+function useTitle(title, ...deps) {
+  useEffect(() => {
+    document.title = title;
+  }, [...deps]);
+}
 
 function CV() {
   const { inputs, institutions, experiences } = useContext(DataContext);
+  const history = useHistory();
+  useTitle("CV");
 
   return (
     <div>
       <Link to="/cv-project" style={{ textDecoration: "none" }}>
-        <button className="submit-form">Go back</button>
+        <button className="submit-form" onClick={history.goback}>
+          Go back
+        </button>
       </Link>
 
       <div className="CV">
@@ -34,5 +47,6 @@ function CV() {
     </div>
   );
 }
+
 
 export default CV;
