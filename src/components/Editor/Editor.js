@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import Basics from "./Basics.js";
 import Institutions from "./Institutions.js";
 import Experiences from "./Experiences.js";
-import { DataContext } from "../DataContext.js";
+import { DataContext } from "../../DataContext.js";
 import { Link, useHistory } from "react-router-dom";
 
 function useTitle(title, ...deps) {
@@ -11,7 +11,7 @@ function useTitle(title, ...deps) {
   }, [...deps]);
 }
 
-const CVForm = (props) => {
+const Editor = (props) => {
   const {
     formSubmit,
     inputs,
@@ -94,4 +94,4 @@ const CVForm = (props) => {
   );
 };
 
-export default CVForm;
+export default Editor;
