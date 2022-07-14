@@ -4,18 +4,6 @@ import uniqid from "uniqid";
 const DataContext = createContext();
 
 const DataProvider = (props) => {
-  const [inputs, setInputs] = useState(() => {
-    const saved = localStorage.getItem("inputs");
-    const initialvalue = JSON.parse(saved);
-    return (
-      initialvalue || {
-        name: "",
-        email: "",
-        phone: "",
-      }
-    );
-  });
-
   const [institutions, setInstitutions] = useState(() => {
     const saved = localStorage.getItem("institutions");
     const initialvalue = JSON.parse(saved);
@@ -75,8 +63,6 @@ const DataProvider = (props) => {
           return item;
         });
       });
-    } else {
-      setInputs({ ...inputs, [name]: value });
     }
   };
 
@@ -127,14 +113,13 @@ const DataProvider = (props) => {
     });
     localStorage.setItem("experiences", JSON.stringify(experiences));
     localStorage.setItem("institutions", JSON.stringify(institutions));
-    localStorage.setItem("inputs", JSON.stringify(inputs));
+    //localStorage.setItem("inputs", JSON.stringify(inputs));
   };
 
   return (
     <DataContext.Provider
       value={{
         formSubmit,
-        inputs,
         handleChange,
         disabled,
         saveArea,

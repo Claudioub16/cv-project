@@ -11,10 +11,11 @@ function useTitle(title, ...deps) {
   }, [...deps]);
 }
 
-const Editor = (props) => {
+const Editor = ({basicInfo}) => {
+  const [basics, setBasics] = basicInfo;
   const {
     formSubmit,
-    inputs,
+    
     handleChange,
     disabled,
     saveArea,
@@ -24,31 +25,31 @@ const Editor = (props) => {
     addNewInst,
     addNewExperience,
   } = useContext(DataContext);
+
   const history = useHistory();
 
   useTitle("Create your CV");
-
-  const goToCV = () => history.push("/cv");
 
   return (
     <form
       className="cv-form"
       onSubmit={(e) => {
-        goToCV();
+        history.push("/cv");
         formSubmit(e);
       }}
     >
       <section className="form-section basics-form">
+        <h3 className="form-section-modal">Basics</h3>
         <Basics
-          data={inputs}
-          handleChange={handleChange}
+          state={basics}
+          setState={setBasics}
           disabled={disabled["basicsDisabled"]}
         />
         <button type="button" name="basicsDisabled" onClick={saveArea}>
           {disabled["basicsDisabled"] ? "Edit" : "Save"}
         </button>
-        <div className="form-section-modal"></div>
       </section>
+      {/*
       <section className="form-section institutions-form">
         {institutions.map((item) => (
           <Institutions
@@ -87,6 +88,7 @@ const Editor = (props) => {
           </button>
         </div>
       </section>
+      */}
       <button className="green-button">Submit</button>
     </form>
   );

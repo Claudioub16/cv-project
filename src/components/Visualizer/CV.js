@@ -3,7 +3,7 @@ import BasicsUI from "./BasicsUI.js";
 import InstitutionsUI from "./InstitutionsUI.js";
 import ExperiencesUI from "./ExperiencesUI.js";
 import { DataContext } from "../../DataContext.js";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function useTitle(title, ...deps) {
   useEffect(() => {
@@ -11,17 +11,19 @@ function useTitle(title, ...deps) {
   }, [...deps]);
 }
 
+const CVLink = () => (
+  <Link to="/" style={{ textDecoration: "none" }}>
+    <button className="green-button">Go back</button>
+  </Link>
+);
+
 function CV() {
   const { inputs, institutions, experiences } = useContext(DataContext);
-  const history = useHistory();
   useTitle("CV");
 
   return (
     <div>
-      <Link to="/" style={{ textDecoration: "none" }}>
-        <button className="green-button">Go back</button>
-      </Link>
-
+      <CVLink />
       <div className="CV">
         <section className="basic-info">
           <BasicsUI data={inputs} />

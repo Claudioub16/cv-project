@@ -8,14 +8,30 @@ import Header from "./components/Header";
 import { useState } from "react";
 
 function App() {
-  const [step, useStep] = useState(1);
+  //const [step, setStep] = useState(1);
+  const [basics, setBasics] = useState({
+    name: "",
+    email: "",
+    phone: "",
+  });
+
+  useState(() => {
+    const saved = localStorage.getItem("inputs");
+    const initialvalue = JSON.parse(saved);
+    if(initialvalue) {
+        setBasics(initialvalue)
+    }
+  },[])
 
   return (
     <>
       <Router>
         <Header step={step} />
         <DataProvider>
-          <Route exact path="/" component={Editor} title="Editor" />
+          <Route exact path="/" title="Editor">
+            
+            <Editor basicInfo={[basics, setBasics]}/>
+          </Route>
           <Route exact path="/cv" component={CV} />
         </DataProvider>
       </Router>
