@@ -26,11 +26,9 @@ const Editor = (props) => {
   } = useContext(DataContext);
   const history = useHistory();
 
-  useTitle("Editor");
+  useTitle("Create your CV");
 
-  const goToCV = () => {
-    history.push("/cv-project/cv");
-  };
+  const goToCV = () => history.push("/cv");
 
   return (
     <form
@@ -89,7 +87,7 @@ const Editor = (props) => {
           </button>
         </div>
       </section>
-      <button className="submit-form">Submit</button>
+      <button className="green-button">Submit</button>
     </form>
   );
 };

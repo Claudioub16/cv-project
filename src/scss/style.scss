@@ -42,6 +42,41 @@ main {
 	padding: 5px 10px;
 }
 
+header {
+	width: 100%;
+    max-width: 640px;
+    display: flex;
+    justify-content: space-between;
+	align-items: center;
+    padding: 10px 0px;
+    margin-bottom: 15px;
+}
+
+header .resume-header-link {
+	text-decoration: none;
+	display: flex;
+	color: $blueGroto;
+	svg {
+		width: 3.5rem;
+		height: auto;
+	}
+
+	span {
+		font-size: 3rem;
+		font-weight: 600;
+		
+	}
+}
+
+header .preview  {
+	text-decoration: none;
+    font-size: 2.1rem;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-weight: 600;;
+}
+
+
 .cv-form {
 	@include useFlex(column, none , none);
 	max-width: 600px;
@@ -109,7 +144,7 @@ button {
 	}
 }
 
-.submit-form {
+.green-button {
 		color: $shamRock;
 		background-color: white;
 		border: 2px solid $shamRock;
@@ -168,7 +203,7 @@ button {
     max-width: 900px;
     padding: 20px;
     box-shadow: 1px 1px 8px rgba(139, 140, 165, 0.5);
-    margin-top: 90px;
+    margin-top: 40px;
 }
 
 .basic-info {
@@ -221,14 +256,18 @@ button {
 
 footer {
 	width: 100%;
-	position: sticky;
-	background-color: black;
-	color: white;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 4px;
+}
+
+footer a {
+	padding: 5px;
+    text-decoration: none;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 	span {
+		color: white;
 		font-size: 1.6rem;
 		margin-left: 6px;
 	}
