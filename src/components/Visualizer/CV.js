@@ -17,8 +17,10 @@ const CVLink = () => (
   </Link>
 );
 
-function CV() {
-  const { inputs, institutions, experiences } = useContext(DataContext);
+const CV = ({ data }) => {
+  const { institutions, experiences } = useContext(DataContext);
+  const [basics] = data;
+
   useTitle("CV");
 
   return (
@@ -26,7 +28,7 @@ function CV() {
       <CVLink />
       <div className="CV">
         <section className="basic-info">
-          <BasicsUI data={inputs} />
+          <BasicsUI data={basics} />
         </section>
         <section className="courses">
           <h3>Courses:</h3>
@@ -43,6 +45,6 @@ function CV() {
       </div>
     </div>
   );
-}
+};
 
 export default CV;

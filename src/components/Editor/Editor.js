@@ -1,9 +1,9 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Basics from "./Basics.js";
 import Institutions from "./Institutions.js";
 import Experiences from "./Experiences.js";
-import { DataContext } from "../../DataContext.js";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import uniqid from "uniqid";
 
 function useTitle(title, ...deps) {
   useEffect(() => {
@@ -11,20 +11,66 @@ function useTitle(title, ...deps) {
   }, [...deps]);
 }
 
-const Editor = ({basicInfo}) => {
+const defaulteditingstatus = {
+  basicsdisabled: false,
+  institutionsdisabled: false,
+  experincesdisabled: false,
+};
+
+const Editor = ({ basicInfo, education, pastJobs }) => {
   const [basics, setBasics] = basicInfo;
-  const {
-    formSubmit,
-    
-    handleChange,
-    disabled,
-    saveArea,
-    institutions,
-    handleRemoval,
-    experiences,
-    addNewInst,
-    addNewExperience,
-  } = useContext(DataContext);
+  const [institutions, setInstitutions] = education;
+  const [experiences, setExperiences] = pastJobs;
+
+  const [disabled, setDisabled] = useState(() => {
+    const saved = localStorage.getItem("defaulteditingstatus");
+    const initialvalue = JSON.parse(saved);
+    return initialvalue || defaulteditingstatus;
+  });
+
+  const addNewInst = () => {
+    setInstitutions([
+      ...institutions,
+      {
+        name: "",
+        course: "",
+        date: "",
+        id: uniqid(),
+      },
+    ]);
+  };
+
+  const addNewExperience = () => {
+    setExperiences([
+      ...experiences,
+      {
+        company: "",
+        position: "",
+        mainTasks: " ",
+        initialDate: "2018-05",
+        finalDate: "2020-05",
+        id: uniqid(),
+      },
+    ]);
+  };
+
+  const saveArea = (event) => {
+    const { name: propertyName } = event.target;
+    setDisabled((prevState) => {
+      const newBool = !prevState[propertyName];
+      return {
+        ...prevState,
+        [propertyName]: newBool,
+      };
+    });
+    localStorage.setItem("experiences", JSON.stringify(experiences));
+    localStorage.setItem("institutions", JSON.stringify(institutions));
+    localStorage.setItem("inputs", JSON.stringify(basics));
+  };
+
+  useEffect(() => {
+    localStorage.setItem("defaultEditingStatus", JSON.stringify(disabled));
+  }, [disabled]);
 
   const history = useHistory();
 
@@ -35,7 +81,7 @@ const Editor = ({basicInfo}) => {
       className="cv-form"
       onSubmit={(e) => {
         history.push("/cv");
-        formSubmit(e);
+        e.preventDefault();
       }}
     >
       <section className="form-section basics-form">
@@ -49,15 +95,14 @@ const Editor = ({basicInfo}) => {
           {disabled["basicsDisabled"] ? "Edit" : "Save"}
         </button>
       </section>
-      {/*
+
       <section className="form-section institutions-form">
         {institutions.map((item) => (
           <Institutions
             data={item}
             key={item.id}
-            handleRemoval={handleRemoval}
             disabled={disabled["institutionsDisabled"]}
-            handleChange={handleChange}
+            setState={setInstitutions}
           />
         ))}
         <div className="buttons-div">
@@ -69,14 +114,14 @@ const Editor = ({basicInfo}) => {
           </button>
         </div>
       </section>
+
       <section className="form-section experiences-form">
         {experiences.map((item) => (
           <Experiences
             data={item}
             key={item.id}
-            handleRemoval={handleRemoval}
             disabled={disabled["experincesDisabled"]}
-            handleChange={handleChange}
+            setState={setExperiences}
           />
         ))}
         <div className="buttons-div">
@@ -88,7 +133,7 @@ const Editor = ({basicInfo}) => {
           </button>
         </div>
       </section>
-      */}
+
       <button className="green-button">Submit</button>
     </form>
   );

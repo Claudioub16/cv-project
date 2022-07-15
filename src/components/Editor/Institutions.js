@@ -1,8 +1,25 @@
 import React from "react";
 
-function Institutions(props) {
-  const { handleChange, data, handleRemoval, disabled } = props;
+const Institutions = (props) => {
+  const { setState, data, disabled } = props;
   const { id, name, course, date } = data;
+
+  const handleChange = (event, id) => {
+    const { name: propertyName, value } = event.target;
+
+    setState((prevState) => {
+      return prevState.map((item) => {
+        if (item.id === id) {
+          item[propertyName] = value;
+        }
+        return item;
+      });
+    });
+  };
+
+  const handleRemoval = (id) => {
+    setState((prevState) => prevState.filter((item) => item.id !== id));
+  };
 
   return (
     <section
@@ -16,7 +33,7 @@ function Institutions(props) {
       <div className="section-div-inline">
         <label htmlFor="">Institution</label>
         <input
-          name="institution-name"
+          name="name"
           value={name}
           type="text"
           onChange={(event) => handleChange(event, id)}
@@ -27,7 +44,7 @@ function Institutions(props) {
         <label htmlFor="">Course</label>
         <input
           type="text"
-          name="institution-course"
+          name="course"
           value={course}
           onChange={(event) => handleChange(event, id)}
           required
@@ -37,7 +54,7 @@ function Institutions(props) {
         <label htmlFor="">Date</label>
         <input
           type="date"
-          name="institution-date"
+          name="date"
           value={date}
           onChange={(event) => handleChange(event, id)}
           required
@@ -45,12 +62,12 @@ function Institutions(props) {
       </div>
       <span
         className="material-icons-outlined trash-can"
-        onClick={() => handleRemoval("Institutions", id)}
+        onClick={() => handleRemoval(id)}
       >
         delete
       </span>
     </section>
   );
-}
+};
 
 export default Institutions;
