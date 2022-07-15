@@ -1,14 +1,14 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import Basics from "./Basics.js";
 import Institutions from "./Institutions.js";
 import Experiences from "./Experiences.js";
 import { useHistory } from "react-router-dom";
 import uniqid from "uniqid";
 
-function useTitle(title, ...deps) {
+function useTitle(title) {
   useEffect(() => {
     document.title = title;
-  }, [...deps]);
+  }, [title]);
 }
 
 const defaulteditingstatus = {

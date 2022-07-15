@@ -1,5 +1,4 @@
 import "./scss/style.scss";
-import { DataProvider } from "./DataContext.js";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Editor from "./components/Editor/Editor.js";
 import CV from "./components/Visualizer/CV.js";
@@ -17,7 +16,6 @@ const getFromLocalStorage = (key, setState) => {
 };
 
 const App = () => {
-  //const [step, setStep] = useState(1);
   const [basics, setBasics] = useState({
     name: "",
     email: "",
@@ -52,18 +50,16 @@ const App = () => {
   return (
     <Router>
       <Header />
-      <DataProvider>
-        <Route exact path="/" title="Editor">
-          <Editor
-            basicInfo={[basics, setBasics]}
-            education={[institutions, setInstitutions]}
-            pastJobs={[experiences, setExperiences]}
-          />
-        </Route>
-        <Route exact path="/cv">
-          <CV data={[basics]} />
-        </Route>
-      </DataProvider>
+      <Route exact path="/" title="Editor">
+        <Editor
+          basicInfo={[basics, setBasics]}
+          education={[institutions, setInstitutions]}
+          pastJobs={[experiences, setExperiences]}
+        />
+      </Route>
+      <Route exact path="/cv">
+        <CV data={[basics]} />
+      </Route>
       <Footer />
     </Router>
   );
