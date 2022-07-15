@@ -85,7 +85,6 @@ const Editor = ({ basicInfo, education, pastJobs }) => {
       }}
     >
       <section className="form-section basics-form">
-        <h3 className="form-section-modal">Basics</h3>
         <Basics
           state={basics}
           setState={setBasics}
