@@ -1,14 +1,13 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import BasicsUI from "./BasicsUI.js";
 import InstitutionsUI from "./InstitutionsUI.js";
 import ExperiencesUI from "./ExperiencesUI.js";
-import { DataContext } from "../../DataContext.js";
 import { Link } from "react-router-dom";
 
-function useTitle(title, ...deps) {
+function useTitle(title) {
   useEffect(() => {
     document.title = title;
-  }, [...deps]);
+  }, [title]);
 }
 
 const CVLink = () => (
@@ -18,10 +17,9 @@ const CVLink = () => (
 );
 
 const CV = ({ data }) => {
-  const { institutions, experiences } = useContext(DataContext);
-  const [basics] = data;
+  const [basics, institutions, experiences] = data;
 
-  useTitle("CV");
+  useTitle("Preview");
 
   return (
     <div>

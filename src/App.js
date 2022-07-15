@@ -1,5 +1,5 @@
 import "./scss/style.scss";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import {HashRouter, Route } from "react-router-dom";
 import Editor from "./components/Editor/Editor.js";
 import CV from "./components/Visualizer/CV.js";
 import Footer from "./components/Footer";
@@ -48,7 +48,7 @@ const App = () => {
   }, []);
 
   return (
-    <Router>
+    <HashRouter  >
       <Header />
       <Route exact path="/" title="Editor">
         <Editor
@@ -58,10 +58,10 @@ const App = () => {
         />
       </Route>
       <Route exact path="/cv">
-        <CV data={[basics]} />
+        <CV data={[basics, institutions, experiences]} />
       </Route>
       <Footer />
-    </Router>
+    </HashRouter>
   );
 };
 
