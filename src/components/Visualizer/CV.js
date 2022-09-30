@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from "react";
 import BasicsUI from "./BasicsUI.js";
 import InstitutionsUI from "./InstitutionsUI.js";
 import ExperiencesUI from "./ExperiencesUI.js";
-import { DataContext } from "../../DataContext.js";
 import { Link } from "react-router-dom";
 
 function useTitle(title, ...deps) {
@@ -17,10 +16,8 @@ const CVLink = () => (
   </Link>
 );
 
-const CV = ({ data }) => {
-  const { institutions, experiences } = useContext(DataContext);
-  const [basics] = data;
-
+const CV = ({ basics, institutions, experiences}) => {
+  
   useTitle("CV");
 
   return (

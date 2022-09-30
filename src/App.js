@@ -58,7 +58,7 @@ const App = () => {
         />
       </Route>
       <Route exact path="/cv">
-        <CV data={[basics]} />
+        <CV basics={basics} institutions={institutions} experiences={experiences} />
       </Route>
       <Footer />
     </Router>
