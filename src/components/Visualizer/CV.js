@@ -1,13 +1,13 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import BasicsUI from "./BasicsUI.js";
 import InstitutionsUI from "./InstitutionsUI.js";
 import ExperiencesUI from "./ExperiencesUI.js";
 import { Link } from "react-router-dom";
 
-function useTitle(title, ...deps) {
+function useTitle(title) {
   useEffect(() => {
     document.title = title;
-  }, [...deps]);
+  }, [title]);
 }
 
 const CVLink = () => (
