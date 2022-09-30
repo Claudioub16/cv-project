@@ -1,5 +1,5 @@
 import "./scss/style.scss";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { HashRouter as Router, Route } from "react-router-dom";
 import Editor from "./components/Editor/Editor.js";
 import CV from "./components/Visualizer/CV.js";
 import Footer from "./components/Footer";
