@@ -7,8 +7,8 @@ import Header from "./components/Header";
 import { useState } from "react";
 import uniqid from "uniqid";
 
-const getFromLocalStorage = (key, setState) => {
-  const saved = localStorage.getItem(key);
+const getFromSessionStorage = (key, setState) => {
+  const saved = sessionStorage.getItem(key);
   if (saved) {
     const parsed = JSON.parse(saved);
     setState(parsed);
@@ -42,9 +42,9 @@ const App = () => {
   ]);
 
   useState(() => {
-    getFromLocalStorage("inputs", setBasics);
-    getFromLocalStorage("institutions", setInstitutions);
-    getFromLocalStorage("experiences", setExperiences);
+    getFromSessionStorage("inputs", setBasics);
+    getFromSessionStorage("institutions", setInstitutions);
+    getFromSessionStorage("experiences", setExperiences);
   }, []);
 
   return (

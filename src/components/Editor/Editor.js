@@ -1,4 +1,4 @@
-import React, {  useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Basics from "./Basics.js";
 import Institutions from "./Institutions.js";
 import Experiences from "./Experiences.js";
@@ -23,7 +23,7 @@ const Editor = ({ basicInfo, education, pastJobs }) => {
   const [experiences, setExperiences] = pastJobs;
 
   const [disabled, setDisabled] = useState(() => {
-    const saved = localStorage.getItem("defaulteditingstatus");
+    const saved = sessionStorage.getItem("defaulteditingstatus");
     const initialvalue = JSON.parse(saved);
     return initialvalue || defaulteditingstatus;
   });
@@ -63,13 +63,13 @@ const Editor = ({ basicInfo, education, pastJobs }) => {
         [propertyName]: newBool,
       };
     });
-    localStorage.setItem("experiences", JSON.stringify(experiences));
-    localStorage.setItem("institutions", JSON.stringify(institutions));
-    localStorage.setItem("inputs", JSON.stringify(basics));
+    sessionStorage.setItem("experiences", JSON.stringify(experiences));
+    sessionStorage.setItem("institutions", JSON.stringify(institutions));
+    sessionStorage.setItem("inputs", JSON.stringify(basics));
   };
 
   useEffect(() => {
-    localStorage.setItem("defaultEditingStatus", JSON.stringify(disabled));
+    sessionStorage.setItem("defaultEditingStatus", JSON.stringify(disabled));
   }, [disabled]);
 
   const history = useHistory();
