@@ -10,19 +10,11 @@ function useTitle(title) {
   }, [title]);
 }
 
-const CVLink = () => (
-  <Link to="/" style={{ textDecoration: "none" }}>
-    <button className="green-button">Go back</button>
-  </Link>
-);
-
-const CV = ({ basics, institutions, experiences}) => {
-  
+const CV = ({ basics, institutions, experiences }) => {
   useTitle("CV");
 
   return (
     <div>
-      <CVLink />
       <div className="CV">
         <section className="basic-info">
           <BasicsUI data={basics} />

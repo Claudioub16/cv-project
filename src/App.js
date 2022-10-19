@@ -1,5 +1,5 @@
 import "./scss/style.scss";
-import {HashRouter, Route } from "react-router-dom";
+import { HashRouter, Route } from "react-router-dom";
 import Editor from "./components/Editor/Editor.js";
 import CV from "./components/Visualizer/CV.js";
 import Footer from "./components/Footer";
@@ -30,6 +30,7 @@ const App = () => {
       id: uniqid(),
     },
   ]);
+
   const [experiences, setExperiences] = useState([
     {
       company: "",
@@ -48,7 +49,7 @@ const App = () => {
   }, []);
 
   return (
-    <HashRouter  >
+    <HashRouter>
       <Header />
       <Route exact path="/" title="Editor">
         <Editor
@@ -58,7 +59,11 @@ const App = () => {
         />
       </Route>
       <Route exact path="/cv">
-        <CV basics={basics} institutions={institutions} experiences={experiences} />
+        <CV
+          basics={basics}
+          institutions={institutions}
+          experiences={experiences}
+        />
       </Route>
       <Footer />
     </HashRouter>

@@ -1,6 +1,21 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
-const Header = ({ step }) => {
+const Header = () => {
+  const location = useLocation();
+  const [buttonInfo, setButtonInfo] = useState({
+    text: "Preview",
+    link: "/cv",
+  });
+
+  useEffect(() => {
+    if (location.pathname === "/") {
+      setButtonInfo({ text: "Preview", link: "/cv" });
+    } else {
+      setButtonInfo({ text: "Go Back", link: "/" });
+    }
+  }, [location]);
+
   return (
     <header>
       <Link to="/" className="resume-header-link">
@@ -18,8 +33,9 @@ const Header = ({ step }) => {
         </svg>
         <span>Resume Generator</span>
       </Link>
-      <Link to="/cv" className="preview green-button">
-        Preview
+
+      <Link to={buttonInfo.link} className="preview green-button">
+        {buttonInfo.text}
       </Link>
     </header>
   );
