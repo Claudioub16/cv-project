@@ -1,0 +1,34 @@
+header {
+	width: 100%;
+    max-width: 640px;
+    display: flex;
+    justify-content: space-between;
+	align-items: center;
+    padding: 10px 0px;
+    margin-bottom: 15px;
+}
+
+header .resume-header-link {
+	text-decoration: none;
+	display: flex;
+	color: $blueGroto;
+	svg {
+		width: 3.5rem;
+		height: auto;
+	}
+
+	span {
+		font-size: 3rem;
+		font-weight: 600;
+		
+	}
+}
+
+header .preview  {
+	text-decoration: none;
+    font-size: 2.1rem;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-weight: 600;;
+}
+

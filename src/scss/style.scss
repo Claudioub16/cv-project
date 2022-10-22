@@ -10,6 +10,11 @@ $blueGroto: #0476D0;
 @import '~material-icons/iconfont/material-icons.css';
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
 
+@import 'header';
+@import 'footer';
+@import 'visualizer';
+
+
 @mixin useFlex($direction, $justify, $align) {
 	display:flex;
 	flex-direction: $direction;
@@ -40,40 +45,6 @@ body {
 main {
 	@include useFlex(column, none, center);
 	padding: 5px 10px;
-}
-
-header {
-	width: 100%;
-    max-width: 640px;
-    display: flex;
-    justify-content: space-between;
-	align-items: center;
-    padding: 10px 0px;
-    margin-bottom: 15px;
-}
-
-header .resume-header-link {
-	text-decoration: none;
-	display: flex;
-	color: $blueGroto;
-	svg {
-		width: 3.5rem;
-		height: auto;
-	}
-
-	span {
-		font-size: 3rem;
-		font-weight: 600;
-		
-	}
-}
-
-header .preview  {
-	text-decoration: none;
-    font-size: 2.1rem;
-    padding: 2px 5px;
-    border-radius: 3px;
-    font-weight: 600;;
 }
 
 
@@ -195,80 +166,4 @@ button {
 	flex-direction: column;
 	min-width: 230px;
 	transition: all 0.2s ease-in 0s;
-}
-
-.CV {
-	  min-width: 600px;
-		min-height: 850px;
-    max-width: 900px;
-    padding: 20px;
-    box-shadow: 1px 1px 8px rgba(139, 140, 165, 0.5);
-    margin-top: 40px;
-}
-
-.basic-info {
-	&:after {
-		content: '';
-		margin-top: 5px;
-		width: 98%;
-		height:2px;
-		background-color: black;
-    display: block;
-	}
-	div {
-		font-size: 1.8rem;
-		margin: 0px;
-		padding: 1px;
-
-		h2 {
-			margin:6px 0px;
-		}
-		p {
-			margin: 0px 10px
-		}
-	}
-}
-
-.courses, .experiences {
-	font-size: 1.6rem;
-	h3 {
-		margin: 10px 0px;
-	}
-	.section-div {
-		display: flex;
-		flex-direction: column;
-		div {
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			h4 {
-				margin: 10px;
-			}
-			p {
-				margin: 0;
-			}
-			.dates {
-				margin-right: 25px;
-			}
-		}
-	}
-}
-
-footer {
-	width: 100%;
-}
-
-footer a {
-	padding: 5px;
-    text-decoration: none;
-    background-color: black;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-	span {
-		color: white;
-		font-size: 1.6rem;
-		margin-left: 6px;
-	}
 }

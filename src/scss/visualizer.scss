@@ -1,0 +1,56 @@
+.CV {
+  min-width: 600px;
+  min-height: 850px;
+  max-width: 900px;
+  padding: 20px;
+  box-shadow: 1px 1px 8px rgba(139, 140, 165, 0.5);
+}
+
+.basic-info {
+  &:after {
+    content: "";
+    margin-top: 5px;
+    width: 98%;
+    height: 2px;
+    background-color: black;
+    display: block;
+  }
+  div {
+    font-size: 1.8rem;
+    margin: 0px;
+    padding: 1px;
+
+    h2 {
+      margin: 6px 0px;
+    }
+    p {
+      margin: 0px 10px;
+    }
+  }
+}
+
+.courses,
+.experiences {
+  font-size: 1.6rem;
+  h3 {
+    margin: 10px 0px;
+  }
+  .section-div {
+    display: flex;
+    flex-direction: column;
+    div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      h4 {
+        margin: 10px;
+      }
+      p {
+        margin: 0;
+      }
+      .dates {
+        margin-right: 25px;
+      }
+    }
+  }
+}
