@@ -20,9 +20,11 @@ const CV = ({ basics, institutions, experiences }) => {
       </section>
       <section className="courses">
         <h3>Courses:</h3>
-        {institutions.map((item) => (
-          <InstitutionsUI data={item} key={item.id + "-ui"} />
-        ))}
+        <div className="courses-list-div">
+          {institutions.map((item) => (
+            <InstitutionsUI data={item} key={item.id + "-ui"} />
+          ))}
+        </div>
       </section>
       <section className="experiences">
         <h3>Experiences:</h3>

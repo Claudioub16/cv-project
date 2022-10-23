@@ -6,6 +6,21 @@
   box-shadow: 1px 1px 8px rgba(139, 140, 165, 0.5);
 }
 
+
+section > h3 {
+  color: #0476d0;
+  font-size: 1.5em;
+}
+
+.section-div h4, .section-div  p {
+  margin: 0px;
+  padding: 0px;
+  font-size: 1.3em;
+}
+
+
+/*General*/
+
 .CV section {
   margin-bottom: 20px;
   padding-bottom: 5px;
@@ -38,7 +53,17 @@
   margin-top: 9px;
 }
 
-section > h3 {
-  color: #0476d0;
-  font-size: 1.5em;
+/* BASICS*/
+
+.courses .courses-list-div {
+  display: flex;
+  flex-wrap: wrap;
 }
+
+.section-div {
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+/* COURSES */
+
