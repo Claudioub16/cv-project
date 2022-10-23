@@ -14,24 +14,22 @@ const CV = ({ basics, institutions, experiences }) => {
   useTitle("CV");
 
   return (
-    <div>
-      <div className="CV">
-        <section className="basic-info">
-          <BasicsUI data={basics} />
-        </section>
-        <section className="courses">
-          <h3>Courses:</h3>
-          {institutions.map((item) => (
-            <InstitutionsUI data={item} key={item.id + "-ui"} />
-          ))}
-        </section>
-        <section className="experiences">
-          <h3>Experiences:</h3>
-          {experiences.map((item) => (
-            <ExperiencesUI data={item} key={item.id + "-ui"} />
-          ))}
-        </section>
-      </div>
+    <div className="CV">
+      <section className="basics">
+        <BasicsUI data={basics} />
+      </section>
+      <section className="courses">
+        <h3>Courses:</h3>
+        {institutions.map((item) => (
+          <InstitutionsUI data={item} key={item.id + "-ui"} />
+        ))}
+      </section>
+      <section className="experiences">
+        <h3>Experiences:</h3>
+        {experiences.map((item) => (
+          <ExperiencesUI data={item} key={item.id + "-ui"} />
+        ))}
+      </section>
     </div>
   );
 };

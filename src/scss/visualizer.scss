@@ -6,51 +6,39 @@
   box-shadow: 1px 1px 8px rgba(139, 140, 165, 0.5);
 }
 
-.basic-info {
-  &:after {
-    content: "";
-    margin-top: 5px;
-    width: 98%;
-    height: 2px;
-    background-color: black;
-    display: block;
-  }
-  div {
-    font-size: 1.8rem;
-    margin: 0px;
-    padding: 1px;
-
-    h2 {
-      margin: 6px 0px;
-    }
-    p {
-      margin: 0px 10px;
-    }
-  }
+.CV section {
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+  margin: 0px 15px;
 }
 
-.courses,
-.experiences {
-  font-size: 1.6rem;
-  h3 {
-    margin: 10px 0px;
-  }
-  .section-div {
-    display: flex;
-    flex-direction: column;
-    div {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      h4 {
-        margin: 10px;
-      }
-      p {
-        margin: 0;
-      }
-      .dates {
-        margin-right: 25px;
-      }
-    }
-  }
+.CV section:not(:last-child) {
+  border-bottom: 1px dashed black;
+}
+
+.CV .basic-info {
+  margin-bottom: 5px;
+}
+
+.CV .basic-info h2 {
+  border-left: 2px solid #0476d0;
+  color: #0476d0;
+  display: inline;
+  padding: 3px;
+  font-weight: bolder;
+  font-size: 2em;
+}
+
+.CV .basic-info p {
+  margin: 0px;
+  font-size: 1.2em;
+}
+
+.CV .basic-info .number {
+  margin-top: 9px;
+}
+
+section > h3 {
+  color: #0476d0;
+  font-size: 1.5em;
 }
